@@ -1,8 +1,14 @@
-import {createStore} from "redux";
+import {createStore, compose} from "redux";
 import {persistStore} from "redux-persist";
 import rootReducer from './root-reducer';
 
-export const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+let composeEnhancers = '';
+
+if(process.env.NODE_ENV === 'development') {
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+}
+
+export const store = createStore(rootReducer, composeEnhancers());
 export const persistor = persistStore(store);
 
 // eslint-disable-next-line import/no-anonymous-default-export
