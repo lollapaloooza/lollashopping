@@ -1,5 +1,3 @@
-import {cartRemoveItem} from "./cart.actions";
-
 export const cartAddItem = (cartItems, cartItemToAdd) => {
     const existingCartItem = cartItems.find(cartItem => cartItem.id === cartItemToAdd.id);
 
