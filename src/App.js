@@ -28,9 +28,9 @@ class App extends Component {
                             ...snapshot.data()
                     });
                 })
-            } else {
-                setCurrentUser(userAuth);
             }
+
+            setCurrentUser(userAuth);
         });
     }
 
@@ -59,7 +59,7 @@ class App extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser
+    currentUser: selectCurrentUser,
 })
 
 const mapDispatchToProps = dispatch => ({
